@@ -12,11 +12,11 @@ import java.util.logging.Logger;
  *
  * @author ibrahim
  */
-public abstract class DatabaseConnection {
+public class DatabaseConnection {
     
-    Connection conn;
+    static Connection conn;
     
-    void createConnection(){
+    public static Connection createConnection(){
         try {
             
             Class.forName("com.mysql.jdbc.Driver");
@@ -31,9 +31,14 @@ public abstract class DatabaseConnection {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
             
         }
+        return conn;
     }
     
-    public abstract void add();
+    public void add(){
+        
+    };
     
-    public abstract void  delete();
+    public void  delete(){
+        
+    };
 }
