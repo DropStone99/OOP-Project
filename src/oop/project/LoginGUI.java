@@ -24,6 +24,9 @@ public class LoginGUI extends javax.swing.JFrame {
     Connection conn;
     PreparedStatement pst;
     ResultSet Rs;
+    /**
+     * Puts the GUI in the middle of the screen.
+     */
     public LoginGUI() {
         initComponents();
         Toolkit toolkit = getToolkit();
@@ -196,12 +199,18 @@ public class LoginGUI extends javax.swing.JFrame {
     private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UsernameActionPerformed
-
+    /**
+     * This method is responsible about the check of login in of employee and admin.
+     * @param evt is the parameter that detect the click of the SignIn button.
+     */
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
         
         String UserName = Username.getText();
         String password = Password.getText();
         String Type = user.getSelectedItem().toString();
+        /**
+         * if the text boxes are empty and the SignIn is pressed gives an error. 
+         */
         if(UserName.equals("") || password.equals("") || Type.equals("Select")){
             JOptionPane.showMessageDialog(rootPane, "Some Fields are Empty", "Error", 1);
         }else{

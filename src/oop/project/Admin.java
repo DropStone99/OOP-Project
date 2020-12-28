@@ -9,17 +9,9 @@ package oop.project;
  *
  * @author ibrahim
  */
-public class Admin extends DatabaseConnection {
+public class Admin {
 
-    @Override
-    public void add() {
-        
-    }
-
-    @Override
-    public void delete() {
-        
-    }
+   
     
     
     

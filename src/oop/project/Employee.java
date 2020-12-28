@@ -9,16 +9,9 @@ package oop.project;
  *
  * @author ibrahim
  */
-public class Employee extends DatabaseConnection {
+public class Employee{
 
-    @Override
-    public void add() {
-        
-    }
-
-    @Override
-    public void delete() {
-        
-    }
+    
+  
     
 }

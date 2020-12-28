@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 
 /**
- *
+ * the class responsible about the database connection used in GUI JFrame.
  * @author ibrahim
  */
 public class DatabaseConnection {
@@ -33,12 +33,4 @@ public class DatabaseConnection {
         }
         return conn;
     }
-    
-    public void add(){
-        
-    };
-    
-    public void  delete(){
-        
-    };
 }
