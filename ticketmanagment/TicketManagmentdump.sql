@@ -47,8 +47,8 @@ DROP TABLE IF EXISTS `client`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `client` (
-  `Name` varchar(45) NOT NULL,
   `C_ID` int NOT NULL,
+  `Name` varchar(45) NOT NULL,
   `E-mail` varchar(100) NOT NULL,
   `password` varchar(45) DEFAULT NULL,
   `phone` varchar(11) DEFAULT NULL,
@@ -63,6 +63,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
+INSERT INTO `client` VALUES (1,'Ahmed','AhmedIsmael@gmail.com','Ahmed123','01023456789'),(2,'mohamed','Mohamedahmed@gmail.com','Mohamed123','01223456789'),(3,'Aser','Aserahmed@gmail.com','Aser123','01233356789'),(4,'Salma','salmaahmed@gmail.com','salma123','01233455789'),(5,'Sara','sarakhalid@gmail.com','sara123','01233324789'),(6,'Nada','Nadaakhalid@gmail.com','Nada123','1233666789');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +109,7 @@ CREATE TABLE `event` (
   `Description` varchar(300) DEFAULT NULL,
   `Time` time DEFAULT NULL,
   `Category Code` int DEFAULT NULL,
-  `Ticekt_Number` int NOT NULL,
+  `Ticket_Number` int NOT NULL,
   PRIMARY KEY (`E-code`),
   KEY `code_idx` (`Category Code`),
   CONSTRAINT `code` FOREIGN KEY (`Category Code`) REFERENCES `category` (`Code`)
@@ -160,4 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-28 20:48:31
+-- Dump completed on 2020-12-29  1:18:39
