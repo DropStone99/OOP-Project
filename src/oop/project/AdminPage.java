@@ -5,11 +5,16 @@
  */
 package oop.project;
 
+import java.sql.*;
+
 /**
  *
  * @author ibrahim
  */
 public class AdminPage extends javax.swing.JFrame {
+    Connection conn=DatabaseConnection.createConnection();
+    Statement St;
+    ResultSet Rs;
 
     /**
      * Creates new form AdminPage
@@ -42,16 +47,16 @@ public class AdminPage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(177, 177, 177)
                 .addComponent(Name)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(108, 108, 108)
                 .addComponent(Name)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         pack();

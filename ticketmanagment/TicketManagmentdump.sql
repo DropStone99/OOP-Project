@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: localhost    Database: ticketmanagment
+-- Host: 127.0.0.1    Database: oop
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
@@ -36,6 +36,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (2,'festival'),(1,'match');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,7 +54,7 @@ CREATE TABLE `client` (
   `password` varchar(45) DEFAULT NULL,
   `phone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`C_ID`),
-  UNIQUE KEY `password_UNIQUE` (`password`)
+  UNIQUE KEY `password_UNIQUE` (`password`) /*!80000 INVISIBLE */
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -104,11 +105,11 @@ DROP TABLE IF EXISTS `event`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `event` (
   `E-code` int NOT NULL,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `place` varchar(50) NOT NULL,
   `Description` varchar(300) DEFAULT NULL,
   `Time` time DEFAULT NULL,
-  `Category Code` int DEFAULT NULL,
+  `Category Code` int NOT NULL,
   `Ticket_Number` int NOT NULL,
   PRIMARY KEY (`E-code`),
   KEY `code_idx` (`Category Code`),
@@ -122,6 +123,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
+INSERT INTO `event` VALUES (100,'2020-10-17','Cairo Stadium','Ahly vs Zamalek in the Egyptian league','18:30:00',1,2000),(105,'2222-05-05','xx','xx','22:00:00',1,5),(200,'2020-12-31','Water way','New year count down festival!','00:00:00',2,1000),(205,'2020-12-12','xxx','xxx','00:00:00',2,7);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-29  1:18:39
+-- Dump completed on 2020-12-29 11:20:24
