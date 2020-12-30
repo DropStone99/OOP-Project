@@ -19,6 +19,7 @@ public abstract class Tables {
     Connection conn = DatabaseConnection.createConnection();
     Statement St;
     ResultSet Rs;
+    JTable DisplayTable;
 
     
     public abstract void DisplayDataInTable(JTable DisplayTable);

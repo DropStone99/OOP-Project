@@ -9,6 +9,13 @@ package oop.project;
  *
  * @author ibrahim
  */
-public class TableData {
+public abstract class TableData {
     
+    private int ID;
+
+    public TableData(int ID) {
+        this.ID = ID;
+    }
+    
+    public abstract int getID();   
 }
