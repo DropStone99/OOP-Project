@@ -5,6 +5,17 @@
  */
 package oop.project;
 
+import java.awt.HeadlessException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  * class is used to get the table of the clients in order.
  * @author ibrahim
@@ -14,8 +25,8 @@ public class Client {
     private String UserName;
     private String Password;
     private String E_mail;
-    private int Phone; 
-
+    private int Phone;
+    
     public Client(int ID, String UserName, String E_mail, String Password, int Phone) {
         this.ID = ID;
         this.UserName = UserName;
@@ -43,5 +54,5 @@ public class Client {
     public int getPhone() {
         return Phone;
     }
-    
+
 }

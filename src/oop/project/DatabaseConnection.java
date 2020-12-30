@@ -20,7 +20,7 @@ public class DatabaseConnection {
         try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop?autoReconnect=true&useSSL=false", "root", "171000");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop?autoReconnect=true&useSSL=false", "root", "admin");
             
         } catch (ClassNotFoundException ex) {
             

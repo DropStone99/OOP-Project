@@ -9,9 +9,6 @@ package oop.project;
  *
  * @author ibrahim
  */
-public class Employee{
-
-    
-  
+public class TableData {
     
 }

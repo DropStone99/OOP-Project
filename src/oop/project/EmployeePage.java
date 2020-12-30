@@ -52,15 +52,14 @@ public class EmployeePage extends javax.swing.JFrame {
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
-    
-    Connection conn=DatabaseConnection.createConnection();
+    Connection conn = DatabaseConnection.createConnection();
     Statement St;
     ResultSet Rs;
     PreparedStatement pst = null;
     
     public void showTableData(){
         try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop?autoReconnect=true&useSSL=false", "root", "171000");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop?autoReconnect=true&useSSL=false", "root", "admin");
             String sql = "SELECT * FROM event";
             pst=conn.prepareStatement(sql);
             Rs=pst.executeQuery();
@@ -272,7 +271,7 @@ public class EmployeePage extends javax.swing.JFrame {
         jScrollPane2.setViewportView(DisplayTable);
 
         Insert.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Insert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_archive-insert-directory_79884.png"))); // NOI18N
+        Insert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/photos/iconfinder_archive-insert-directory_79884.png"))); // NOI18N
         Insert.setText("Insert");
         Insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,7 +280,7 @@ public class EmployeePage extends javax.swing.JFrame {
         });
 
         Update.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_ic_system_update_tv_48px_352158.png"))); // NOI18N
+        Update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/photos/iconfinder_ic_system_update_tv_48px_352158.png"))); // NOI18N
         Update.setText("Update");
         Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,7 +289,7 @@ public class EmployeePage extends javax.swing.JFrame {
         });
 
         Delete.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_basket_1814090.png"))); // NOI18N
+        Delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/photos/iconfinder_basket_1814090.png"))); // NOI18N
         Delete.setText("Delete");
         Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +347,7 @@ public class EmployeePage extends javax.swing.JFrame {
         jtext10.setText("Search By Name :");
 
         Insert1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Insert1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_archive-insert-directory_79884.png"))); // NOI18N
+        Insert1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/photos/iconfinder_archive-insert-directory_79884.png"))); // NOI18N
         Insert1.setText("Insert");
         Insert1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -357,7 +356,7 @@ public class EmployeePage extends javax.swing.JFrame {
         });
 
         Update1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Update1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_ic_system_update_tv_48px_352158.png"))); // NOI18N
+        Update1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/photos/iconfinder_ic_system_update_tv_48px_352158.png"))); // NOI18N
         Update1.setText("Update");
         Update1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,7 +365,7 @@ public class EmployeePage extends javax.swing.JFrame {
         });
 
         Delete1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Delete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_basket_1814090.png"))); // NOI18N
+        Delete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/photos/iconfinder_basket_1814090.png"))); // NOI18N
         Delete1.setText("Delete");
         Delete1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -617,11 +616,11 @@ public class EmployeePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -750,7 +749,7 @@ public class EmployeePage extends javax.swing.JFrame {
             String sql="INSERT INTO `event`" +
             "(`E-code`,`date`,`place`,`Description`,`Time`,`Category Code`,`Ticket_Number`)" +
             "VALUES (?,?,?,?,?,?,?);";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "admin");
             pst = conn.prepareStatement(sql);
             pst.setString(1, ID1.getText());
             pst.setString(2, ID2.getText());
@@ -773,7 +772,7 @@ public class EmployeePage extends javax.swing.JFrame {
     private void Update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update1ActionPerformed
         try{
             String sql="UPDATE event SET `date`=?, `place`=?, `Description`=?, `Time`=?, `Category Code`=?, `Ticket_Number`=? WHERE `E-code`=?";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "admin");
             pst = conn.prepareStatement(sql);
             pst.setString(7, ID1.getText());
             pst.setString(1, ID2.getText());
@@ -796,7 +795,7 @@ public class EmployeePage extends javax.swing.JFrame {
         
         try{
             String sql="DELETE FROM `event` WHERE `E-code`=?";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "admin");
             pst = conn.prepareStatement(sql);
             pst.setString(1, ID1.getText());
             pst.executeUpdate();
