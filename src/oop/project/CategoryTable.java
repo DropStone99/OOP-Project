@@ -5,10 +5,12 @@
  */
 package oop.project;
 
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -60,7 +62,20 @@ public class CategoryTable extends Tables{
 
     @Override
     public void ExecuteQuery(String sql, String message) {
-        
+        try {
+            St = conn.createStatement();
+            if(St.executeUpdate(sql) == 1){
+                
+                DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
+                model.setRowCount(0);
+                DisplayDataInTable();
+                
+                JOptionPane.showMessageDialog(null ,"Data "+message+" Succefully");
+            }else{
+                JOptionPane.showMessageDialog(null ,"Data Not "+message);
+            }
+        } catch (HeadlessException | SQLException ex) {
+        }
     }
     
     public void DisplayTableClickedInTextField(JTextField Category_ID, JTextField Name){

@@ -32,55 +32,34 @@ import static oop.project.DatabaseConnection.conn;
  * @author ibrahim
  */
 public class AdminPage extends javax.swing.JFrame {
+    CategoryTable category;
+    EventTable event;
     Connection conn=DatabaseConnection.createConnection();
     Statement St;
     ResultSet Rs;
     PreparedStatement pst = null;
     
-    public AdminPage() {
-        initComponents();
-        showTableData();
-        showTableData1();
-    }
-
-    
-     public void showTableData(){
-        try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop?autoReconnect=true&useSSL=false", "root", "171000");
-            String sql = "SELECT * FROM event event";
-            pst=conn.prepareStatement(sql);
-            Rs=pst.executeQuery();
-            jTable2.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex);
-            
-        }
-    
-    }
-     
-     public void showTableData1(){
-        try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop?autoReconnect=true&useSSL=false", "root", "171000");
-            String sql = "SELECT * FROM category";
-            pst=conn.prepareStatement(sql);
-            Rs=pst.executeQuery();
-            jTable1.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex);
-            
-        }
-    
-    }
-
-    /**
-     * Creates new form AdminPage
-     */
-    
     public AdminPage(String name) {
         initComponents();
-        //Name.setText(name);
+        category = new CategoryTable(jTable1);
+        category.DisplayDataInTable();
+        event = new EventTable(jTable2);
+        event.DisplayDataInTable();
+        AdminName.setText("Welcome " + name);
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
+    }
+    
+    public AdminPage() {
+        initComponents();
+        category = new CategoryTable(jTable1);
+        category.DisplayDataInTable();
+        event = new EventTable(jTable2);
+        event.DisplayDataInTable();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
 
     /**
@@ -125,9 +104,11 @@ public class AdminPage extends javax.swing.JFrame {
         Update2 = new javax.swing.JButton();
         Delete2 = new javax.swing.JButton();
         SignIn = new javax.swing.JButton();
+        AdminName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(128, 128, 128));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(1080, 920));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -138,6 +119,11 @@ public class AdminPage extends javax.swing.JFrame {
                 "Event Code", "Date", "Place", "Description", "Time", "Category code", "Ticket Number"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable2);
 
         ID1.addActionListener(new java.awt.event.ActionListener() {
@@ -252,6 +238,11 @@ public class AdminPage extends javax.swing.JFrame {
                 "Category Code", "Category Name"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -321,6 +312,8 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
 
+        AdminName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -358,7 +351,7 @@ public class AdminPage extends javax.swing.JFrame {
                             .addComponent(Insert2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -370,7 +363,8 @@ public class AdminPage extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CategoryCode, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(CategoryCode, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AdminName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -398,7 +392,9 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(SignIn)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(SignIn)
+                            .addComponent(AdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -454,7 +450,7 @@ public class AdminPage extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Insert1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Update1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -520,72 +516,18 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_CategoryCodeKeyReleased
 
     private void Insert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insert1ActionPerformed
-        //String sql = "INSERT INTO `event`(`E-code`, `date`, `place`, `Description`, `CategoryCode`,`Ticket_Number`)"
-        //+ " VALUES ('" + ID1.getText() + "','" + ID2.getText() + "','" + ID3.getText() + "','" + ID4.getText() + "','" + ID5.getText() +  "','" + ID6.getText() + "','" + ID7.getText() + "')";
-
-        //ExecuteQuery(sql,"Inserted");
-        try{
-            String sql="INSERT INTO `event`" +
+        event.ExecuteQuery("INSERT INTO `event`" +
             "(`E-code`,`date`,`place`,`Description`,`Time`,`Category Code`,`Ticket_Number`)" +
-            "VALUES (?,?,?,?,?,?,?);";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, ID1.getText());
-            pst.setString(2, ID2.getText());
-            pst.setString(3, ID3.getText());
-            pst.setString(4, ID4.getText());
-            pst.setString(5, ID5.getText());
-            pst.setString(6, ID6.getText());
-            pst.setString(7, ID7.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"inserted successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData();
+            "VALUES (" + ID1.getText() + ",'" + ID7.getText() + "','" + ID6.getText() + "','" + ID5.getText() + "',' " + ID4.getText() + "'," + ID3.getText() + "," + ID2.getText() +");","Inserted");
 
     }//GEN-LAST:event_Insert1ActionPerformed
 
     private void Update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update1ActionPerformed
-        try{
-            String sql="UPDATE event SET `date`=?, `place`=?, `Description`=?, `Time`=?, `Category Code`=?, `Ticket_Number`=? WHERE `E-code`=?";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
-            pst = conn.prepareStatement(sql);
-            pst.setString(7, ID1.getText());
-            pst.setString(1, ID2.getText());
-            pst.setString(2, ID3.getText());
-            pst.setString(3, ID4.getText());
-            pst.setString(4, ID5.getText());
-            pst.setString(5, ID6.getText());
-            pst.setString(6, ID7.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"updated successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData();
+        event.ExecuteQuery("UPDATE event SET `E-code`=" + ID1.getText() + "`date`='" + ID7.getText() +"', `place`='" + ID6.getText() + "', `Description`='" + ID5.getText() + "', `Time`='" + ID4.getText() + "', `Category Code`=" + ID3.getText() + ", `Ticket_Number`=" + ID2.getText() + "WHERE `E-code`="+ ID1.getText()+";", "Updated");
     }//GEN-LAST:event_Update1ActionPerformed
 
     private void Delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete1ActionPerformed
-
-        try{
-            String sql="DELETE FROM `event` WHERE `E-code`=?";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, ID1.getText());
-            pst.executeUpdate();
-
-            JOptionPane.showMessageDialog(null,"deleted successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData();
+        event.ExecuteQuery("DELETE FROM `event` WHERE `E-code`=" +ID1.getText(), "Deleted");
     }//GEN-LAST:event_Delete1ActionPerformed
 
     private void ID8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID8ActionPerformed
@@ -634,64 +576,32 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_CategoryCode1KeyReleased
 
     private void Insert2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insert2ActionPerformed
-        try{
-            String sql="INSERT INTO `category`" +
+        category.ExecuteQuery("INSERT INTO `category`" +
             "(`Code`,`Name`)" +
-            "VALUES (?,?);";
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, ID8.getText());
-            pst.setString(2, ID9.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"inserted successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData1();
+            "VALUES ('"+ ID8.getText() +"','" + ID9.getText() + "');", "Inserted");
     }//GEN-LAST:event_Insert2ActionPerformed
 
     private void Update2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update2ActionPerformed
-         try{
-            String sql="UPDATE category SET `Name`=? WHERE `Code`=?";
-            pst = conn.prepareStatement(sql);
-            pst.setString(2, ID8.getText());
-            pst.setString(1, ID9.getText());
-            
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"updated successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData1();
+         category.ExecuteQuery("UPDATE `category` SET `Code`=" + ID8.getText() + ", `Name` = '" + ID9.getText() + "'  WHERE `Code`=" + ID8.getText() , "Updated");
     }//GEN-LAST:event_Update2ActionPerformed
 
     private void Delete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete2ActionPerformed
-         try{
-            String sql="DELETE FROM `category` WHERE `Code`=?";
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, ID8.getText());
-            pst.executeUpdate();
-
-            JOptionPane.showMessageDialog(null,"deleted successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData1();
+         category.ExecuteQuery("DELETE FROM `category` WHERE `Code` =" + ID8.getText(), "Deleted");
     }//GEN-LAST:event_Delete2ActionPerformed
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
-
-                        LoginGUI gu = new LoginGUI();
-                        gu.setVisible(true);
-                        setVisible(false);
-                   
-        
+        LoginGUI gu = new LoginGUI();
+        gu.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_SignInActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        category.DisplayTableClickedInTextField(ID8, ID9);
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        event.DisplayTableClickedInTextField(ID1, ID7, ID6, ID5, ID4, ID3, ID2);
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -729,6 +639,7 @@ public class AdminPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AdminName;
     private javax.swing.JTextField CategoryCode;
     private javax.swing.JTextField CategoryCode1;
     private javax.swing.JButton Delete1;

@@ -5,14 +5,18 @@
  */
 package oop.project;
 
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import static oop.project.Tables.St;
+import static oop.project.Tables.conn;
 
 /**
  *
@@ -67,10 +71,23 @@ public class ClientTable extends Tables{
 
     @Override
     public void ExecuteQuery(String sql, String message) {
-        
+        try {
+            St = conn.createStatement();
+            if(St.executeUpdate(sql) == 1){
+                
+                DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
+                model.setRowCount(0);
+                DisplayDataInTable();
+                
+                JOptionPane.showMessageDialog(null ,"Data "+message+" Succefully");
+            }else{
+                JOptionPane.showMessageDialog(null ,"Data Not "+message);
+            }
+        } catch (HeadlessException | SQLException ex) {
+        }
     }
     
-    public void DisplayTableClickedInTextField(JTextField ID, JTextField ClientName, JTextField Email, JTextField Password, JTextField Phone, JTable DisplayTable){
+    public void DisplayTableClickedInTextField(JTextField ID, JTextField ClientName, JTextField Email, JTextField Password, JTextField Phone){
         int i = DisplayTable.getSelectedRow();
         TableModel modle = DisplayTable.getModel();
         ID.setText(modle.getValueAt(i, 0).toString());

@@ -31,23 +31,29 @@ import static oop.project.DatabaseConnection.conn;
  * @author ibrahim
  */
 public class EmployeePage extends javax.swing.JFrame {
-
-    /**
-     * Creates new form EmployeePage
-     */
-    public EmployeePage() {
-        initComponents();
-        showTableData();
-        DisplayDataInTable();
-    }
-    /**
-     * constructor is used for welcoming the employee.
-     * puts the GUI in the middle of the screen. 
-     * @param name 
-     */
+    
+    ClientTable client;
+    EventTable event;
+    
     public EmployeePage(String name) {
         initComponents();
+        client = new ClientTable(Client_Table);
+        client.DisplayDataInTable();
+        event = new EventTable(Event_Table);
+        event.DisplayDataInTable();
         NameEmployee.setText("Welcome " + name);
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
+        
+    }
+
+    public EmployeePage() {
+        initComponents();
+        client = new ClientTable(Client_Table);
+        client.DisplayDataInTable();
+        event = new EventTable(Event_Table);
+        event.DisplayDataInTable();
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
@@ -58,90 +64,7 @@ public class EmployeePage extends javax.swing.JFrame {
     ResultSet Rs;
     PreparedStatement pst = null;
     
-    public void showTableData(){
-        try{
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop?autoReconnect=true&useSSL=false", "root", "171000");
-            String sql = "SELECT * FROM event";
-            pst=conn.prepareStatement(sql);
-            Rs=pst.executeQuery();
-            jTable2.setModel(DbUtils.resultSetToTableModel(Rs));
-        }
-        catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex);
-            
-        }
     
-    }
-    
-    /**
-     * this method is used for making the attributes of database equal to the input of the user.
-     * 
-     * @return client list
-     */
-    public ArrayList<Client> getClientList(){
-        
-        ArrayList<Client> clientList = new ArrayList<Client>();
-        String sql = "SELECT * FROM CLIENT";
-        try {
-            St = conn.createStatement();
-            Rs = St.executeQuery(sql);
-            Client client;
-            while(Rs.next()){
-                client = new Client(Rs.getInt("C_ID"),Rs.getString("Name"),Rs.getString("E-mail"),Rs.getString("password"),Rs.getInt("phone"));
-                clientList.add(client);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(EmployeePage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return clientList;
-        
-    }
-    
-    
-    /**
-     * this method is used to display the data of each client in a table
-     */
-    public void DisplayDataInTable(){
-        
-        ArrayList<Client> list = getClientList();
-        DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
-        Object[] row = new Object[5];
-        for(int i = 0 ; i < list.size(); i++){
-            
-            row[0] = list.get(i).getID();
-            row[1] = list.get(i).getUserName();
-            row[2] = list.get(i).getE_mail();
-            row[3] = list.get(i).getPassword();
-            row[4] = list.get(i).getPhone();
-            
-            model.addRow(row);
-            
-        }
-    }
-    
-    /**
-     * this method is used for executing the SQL Query.
-     * @param sql the SQL statement that the user give in both update ,insert and delete.
-     * @param message the statement that display after pressing each button.
-     */
-    public void ExecuteQuery(String sql, String message){
-        
-        try {
-            St = conn.createStatement();
-            if(St.executeUpdate(sql) == 1){
-                
-                DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
-                model.setRowCount(0);
-                DisplayDataInTable();
-                
-                JOptionPane.showMessageDialog(null ,"Data "+message+" Succefully");
-            }else{
-                JOptionPane.showMessageDialog(null ,"Data Not "+message);
-            }
-        } catch (HeadlessException | SQLException ex) {
-        }
-    }
     
 
     /**
@@ -167,7 +90,7 @@ public class EmployeePage extends javax.swing.JFrame {
         Phone = new javax.swing.JTextField();
         Password = new javax.swing.JPasswordField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        DisplayTable = new javax.swing.JTable();
+        Client_Table = new javax.swing.JTable();
         Insert = new javax.swing.JButton();
         Update = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
@@ -177,12 +100,9 @@ public class EmployeePage extends javax.swing.JFrame {
         jlabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Event_Table = new javax.swing.JTable();
         ByName = new javax.swing.JTextField();
         jtext10 = new javax.swing.JLabel();
-        Insert1 = new javax.swing.JButton();
-        Update1 = new javax.swing.JButton();
-        Delete1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         SignIn = new javax.swing.JButton();
@@ -237,8 +157,8 @@ public class EmployeePage extends javax.swing.JFrame {
             }
         });
 
-        DisplayTable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        DisplayTable.setModel(new javax.swing.table.DefaultTableModel(
+        Client_Table.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        Client_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -246,12 +166,12 @@ public class EmployeePage extends javax.swing.JFrame {
                 "ID", "Name", "Email", "Password", "Phone"
             }
         ));
-        DisplayTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        Client_Table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DisplayTableMouseClicked(evt);
+                Client_TableMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(DisplayTable);
+        jScrollPane2.setViewportView(Client_Table);
 
         Insert.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Insert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/photos/iconfinder_archive-insert-directory_79884.png"))); // NOI18N
@@ -310,7 +230,7 @@ public class EmployeePage extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Search By ID :");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Event_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -318,7 +238,7 @@ public class EmployeePage extends javax.swing.JFrame {
                 "Event Code", "Date", "Place", "Description", "Time", "Category code", "Ticket Number"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(Event_Table);
 
         ByName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -328,33 +248,6 @@ public class EmployeePage extends javax.swing.JFrame {
 
         jtext10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jtext10.setText("Search By Name :");
-
-        Insert1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Insert1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_archive-insert-directory_79884.png"))); // NOI18N
-        Insert1.setText("Insert");
-        Insert1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Insert1ActionPerformed(evt);
-            }
-        });
-
-        Update1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Update1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_ic_system_update_tv_48px_352158.png"))); // NOI18N
-        Update1.setText("Update");
-        Update1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Update1ActionPerformed(evt);
-            }
-        });
-
-        Delete1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Delete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oop/project/iconfinder_basket_1814090.png"))); // NOI18N
-        Delete1.setText("Delete");
-        Delete1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Delete1ActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Client ID :");
@@ -374,14 +267,6 @@ public class EmployeePage extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Insert1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Update1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,18 +370,14 @@ public class EmployeePage extends javax.swing.JFrame {
                             .addComponent(CategoryCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Insert, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Insert1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Update1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -533,39 +414,24 @@ public class EmployeePage extends javax.swing.JFrame {
     private void InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertActionPerformed
         String sql = "INSERT INTO `client`(`C_ID`, `Name`, `E-mail`, `password`, `phone`) VALUES ('" + ID.getText() + "','" + ClientName.getText() + "','" + Email.getText() + "','" + Password.getText() + "','" + Phone.getText() + "')";
         
-        ExecuteQuery(sql,"Inserted");
+        client.ExecuteQuery(sql,"Inserted");
     }//GEN-LAST:event_InsertActionPerformed
-    /**
-     * Update the data in the text filed boxes.
-     * @param evt is the parameter that detect the click of the Update button
-     */
+
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         String sql = "UPDATE `client` SET `Name`='" + ClientName.getText() + "',`E-mail`='" + Email.getText() + "',`password`='" + Password.getText() + "',`phone`='" + Phone.getText() + "' WHERE `C_ID`= " + ID.getText();
         
-        ExecuteQuery(sql,"Updated");
+        client.ExecuteQuery(sql,"Updated");
     }//GEN-LAST:event_UpdateActionPerformed
-    /**
-     * Delete the data in the text filed boxes.
-     * @param evt is the parameter that detect the click of the Delete button
-     */
+    
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         String sql = "DELETE FROM `client` WHERE `C_ID` = "+ID.getText();
         
-        ExecuteQuery(sql,"Deleted");
+        client.ExecuteQuery(sql,"Deleted");
     }//GEN-LAST:event_DeleteActionPerformed
-    /**
-     * this method take the selected row of data inside the client table and put each attribute in it's place. 
-     * @param evt is the parameter that detect the click of the on the row of data of a single client
-     */
-    private void DisplayTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DisplayTableMouseClicked
-        int i = DisplayTable.getSelectedRow();
-        TableModel modle = DisplayTable.getModel();
-        ID.setText(modle.getValueAt(i, 0).toString());
-        ClientName.setText(modle.getValueAt(i, 1).toString());
-        Email.setText(modle.getValueAt(i, 2).toString());
-        Password.setText(modle.getValueAt(i, 3).toString());
-        Phone.setText(modle.getValueAt(i, 4).toString());
-    }//GEN-LAST:event_DisplayTableMouseClicked
+    
+    private void Client_TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Client_TableMouseClicked
+        client.DisplayTableClickedInTextField(ID, ClientName, Email, Password, Phone);
+    }//GEN-LAST:event_Client_TableMouseClicked
 
     private void CategoryCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryCodeActionPerformed
         // TODO add your handling code here:
@@ -629,110 +495,12 @@ public class EmployeePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ByNameKeyReleased
 
-    private void Insert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insert1ActionPerformed
-        //String sql = "INSERT INTO `event`(`E-code`, `date`, `place`, `Description`, `CategoryCode`,`Ticket_Number`)"
-                //+ " VALUES ('" + ID1.getText() + "','" + ID2.getText() + "','" + ID3.getText() + "','" + ID4.getText() + "','" + ID5.getText() +  "','" + ID6.getText() + "','" + ID7.getText() + "')";
-        
-        //ExecuteQuery(sql,"Inserted");
-        try{
-            String sql="INSERT INTO `event`" +
-            "(`E-code`,`date`,`place`,`Description`,`Time`,`Category Code`,`Ticket_Number`)" +
-            "VALUES (?,?,?,?,?,?,?);";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, ID1.getText());
-            pst.setString(2, ID2.getText());
-            pst.setString(3, ID3.getText());
-            pst.setString(4, ID4.getText());
-            pst.setString(5, ID5.getText());
-            pst.setString(6, ID6.getText());
-            pst.setString(7, ID7.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"inserted successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData();
-        
-    }//GEN-LAST:event_Insert1ActionPerformed
-
-    private void Update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update1ActionPerformed
-        try{
-            String sql="UPDATE event SET `date`=?, `place`=?, `Description`=?, `Time`=?, `Category Code`=?, `Ticket_Number`=? WHERE `E-code`=?";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
-            pst = conn.prepareStatement(sql);
-            pst.setString(7, ID1.getText());
-            pst.setString(1, ID2.getText());
-            pst.setString(2, ID3.getText());
-            pst.setString(3, ID4.getText());
-            pst.setString(4, ID5.getText());
-            pst.setString(5, ID6.getText());
-            pst.setString(6, ID7.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"updated successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData();
-    }//GEN-LAST:event_Update1ActionPerformed
-
-    private void Delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete1ActionPerformed
-        
-        try{
-            String sql="DELETE FROM `event` WHERE `E-code`=?";
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root", "171000");
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, ID1.getText());
-            pst.executeUpdate();
-            
-            JOptionPane.showMessageDialog(null,"deleted successfully");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-
-        }
-        showTableData();
-    }//GEN-LAST:event_Delete1ActionPerformed
-
     private void ByIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ByIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ByIDActionPerformed
 
     private void CategoryCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CategoryCodeKeyReleased
-        try{
-            String sql="select * from event where `E-code` =?";
-            
-            pst=conn.prepareStatement(sql);
-            pst.setString(1, CategoryCode.getText());
-            Rs=pst.executeQuery();
-            if(Rs.next()){
-                String add1=Rs.getString("E-code");
-                ID1.setText(add1);
-                 String add2=Rs.getString("date");
-                ID2.setText(add2);
-                 String add3=Rs.getString("place");
-                ID3.setText(add3);
-                 String add4=Rs.getString("Description");
-                ID4.setText(add4);
-                 String add5=Rs.getString("Time");
-                ID5.setText(add5);
-                String add6=Rs.getString("Category code");
-                ID6.setText(add6);
-                String add7=Rs.getString("Ticket_Number");
-                ID7.setText(add7);
-                
-                
-            }
-        
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        
-        }
+       
     }//GEN-LAST:event_CategoryCodeKeyReleased
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
@@ -743,9 +511,7 @@ public class EmployeePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_SignInActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+ 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -784,19 +550,17 @@ public class EmployeePage extends javax.swing.JFrame {
     private javax.swing.JTextField ByName;
     private javax.swing.JTextField CategoryCode;
     private javax.swing.JTextField ClientName;
+    private javax.swing.JTable Client_Table;
     private javax.swing.JButton Delete;
-    private javax.swing.JButton Delete1;
-    private javax.swing.JTable DisplayTable;
     private javax.swing.JTextField Email;
+    private javax.swing.JTable Event_Table;
     private javax.swing.JTextField ID;
     private javax.swing.JButton Insert;
-    private javax.swing.JButton Insert1;
     private javax.swing.JLabel NameEmployee;
     private javax.swing.JPasswordField Password;
     private javax.swing.JTextField Phone;
     private javax.swing.JButton SignIn;
     private javax.swing.JButton Update;
-    private javax.swing.JButton Update1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -808,7 +572,6 @@ public class EmployeePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel jlabel10;

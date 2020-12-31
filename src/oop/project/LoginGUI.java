@@ -253,12 +253,10 @@ public class LoginGUI extends javax.swing.JFrame {
                     if(Type.equalsIgnoreCase("Admin") && S1.equalsIgnoreCase("Admin")){
                         AdminPage ad = new AdminPage(S2);
                         ad.setVisible(true);
-
                         setVisible(false);
                     }else if(Type.equalsIgnoreCase("Employee") && S1.equalsIgnoreCase("Employee")){
                         EmployeePage ad = new EmployeePage(S2);
                         ad.setVisible(true);
-                        ad.DisplayDataInTable();
                         setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(rootPane, "There is an Error in user \n Please try again", "Login Error", 1);
