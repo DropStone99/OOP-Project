@@ -16,13 +16,16 @@ import javax.swing.JTable;
  */
 public abstract class Tables {
     
-    Connection conn = DatabaseConnection.createConnection();
-    Statement St;
-    ResultSet Rs;
-    JTable DisplayTable;
+    static  Connection conn = DatabaseConnection.createConnection();
+    static  Statement St;
+    static  ResultSet Rs;
+    JTable  DisplayTable; 
 
+    public Tables(JTable DisplayTable) {
+        this.DisplayTable = DisplayTable;
+    }
     
-    public abstract void DisplayDataInTable(JTable DisplayTable);
+    public abstract void DisplayDataInTable();
     
     public abstract void ExecuteQuery(String sql, String message);
 

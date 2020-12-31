@@ -19,6 +19,12 @@ import javax.swing.table.TableModel;
  * @author ibrahim
  */
 public class ClientTable extends Tables{
+
+    public ClientTable(JTable jtable) {
+        super(jtable);
+    }
+
+
     
     
     public ArrayList<Client> getClientList(){
@@ -42,7 +48,7 @@ public class ClientTable extends Tables{
     }
 
     @Override
-    public void DisplayDataInTable(JTable DisplayTable) {
+    public void DisplayDataInTable() {
        ArrayList<Client> list = getClientList();
         DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
         Object[] row = new Object[5];
@@ -64,9 +70,9 @@ public class ClientTable extends Tables{
         
     }
     
-    public void DisplayTableClickedInTextField(JTextField ID, JTextField ClientName, JTextField Email, JTextField Password, JTextField Phone){
-        int i = this.DisplayTable.getSelectedRow();
-        TableModel modle = this.DisplayTable.getModel();
+    public void DisplayTableClickedInTextField(JTextField ID, JTextField ClientName, JTextField Email, JTextField Password, JTextField Phone, JTable DisplayTable){
+        int i = DisplayTable.getSelectedRow();
+        TableModel modle = DisplayTable.getModel();
         ID.setText(modle.getValueAt(i, 0).toString());
         ClientName.setText(modle.getValueAt(i, 1).toString());
         Email.setText(modle.getValueAt(i, 2).toString());

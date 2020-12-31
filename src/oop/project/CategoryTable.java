@@ -20,16 +20,20 @@ import javax.swing.table.TableModel;
  */
 public class CategoryTable extends Tables{
 
-    public ArrayList<Category> getCategoryList(){
+    public CategoryTable(JTable DisplayTable) {
+        super(DisplayTable);
+    }
+
+    public  ArrayList<Category> getCategoryList(){
         
-        ArrayList<Category> CategoryList = new ArrayList<>();
-        String sql = "SELECT * FROM EVENT";
+        ArrayList<Category> CategoryList = new ArrayList<Category>();
+        String sql = "SELECT * FROM category;";
         try {
             St = conn.createStatement();
             Rs = St.executeQuery(sql);
             Category category;
             while(Rs.next()){
-                category = new Category(Rs.getInt("Category_ID"),Rs.getString("Name"));
+                category = new Category(Rs.getInt("Code"),Rs.getString("Name"));
                 CategoryList.add(category);
             }
         } catch (SQLException ex) {
@@ -40,10 +44,10 @@ public class CategoryTable extends Tables{
         
     }
     @Override
-    public void DisplayDataInTable(JTable DisplayTable) {
+    public void DisplayDataInTable() {
         ArrayList<Category> list = getCategoryList();
         DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
-        Object[] row = new Object[2];
+        Object[] row = new Object[3];
         for(int i = 0 ; i < list.size(); i++){
             
             row[0] = list.get(i).getID();
@@ -60,10 +64,14 @@ public class CategoryTable extends Tables{
     }
     
     public void DisplayTableClickedInTextField(JTextField Category_ID, JTextField Name){
-        int i = this.DisplayTable.getSelectedRow();
-        TableModel modle = this.DisplayTable.getModel();
+        int i = DisplayTable.getSelectedRow();
+        TableModel modle = DisplayTable.getModel();
         Category_ID.setText(modle.getValueAt(i, 0).toString());
         Name.setText(modle.getValueAt(i, 1).toString());
     }
+
+
+    
+
     
 }

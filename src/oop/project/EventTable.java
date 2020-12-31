@@ -19,17 +19,23 @@ import javax.swing.table.TableModel;
  * @author ibrahim
  */
 public class EventTable extends Tables{
+
+    public EventTable(JTable jtable) {
+        super(jtable);
+    }
+
+
     
     public ArrayList<Event> getEventList(){
         
-        ArrayList<Event> EventList = new ArrayList<>();
-        String sql = "SELECT * FROM EVENT";
+        ArrayList<Event> EventList = new ArrayList<Event>();
+        String sql = "SELECT * FROM `event`";
         try {
             St = conn.createStatement();
             Rs = St.executeQuery(sql);
             Event event;
             while(Rs.next()){
-                event = new Event(Rs.getInt("E_ID"),Rs.getString("Date"),Rs.getString("Place"),Rs.getString("Description"),Rs.getString("Time"),Rs.getInt("CategoryCode"),Rs.getInt("TicketNumber"));
+                event = new Event(Rs.getInt("E-code"),Rs.getString("date"),Rs.getString("place"),Rs.getString("Description"),Rs.getString("Time"),Rs.getInt("Category Code"),Rs.getInt("Ticket_Number"));
                 EventList.add(event);
             }
         } catch (SQLException ex) {
@@ -41,7 +47,7 @@ public class EventTable extends Tables{
     }
 
     @Override
-    public void DisplayDataInTable(JTable DisplayTable) {
+    public void DisplayDataInTable() {
         ArrayList<Event> list = getEventList();
         DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
         Object[] row = new Object[7];
@@ -66,9 +72,9 @@ public class EventTable extends Tables{
         
     }
     
-    public void DisplayTableClickedInTextField(JTextField E_ID, JTextField Date, JTextField Place, JTextField Description, JTextField Time, JTextField CategoryCode, JTextField TicketNumber){
-        int i = this.DisplayTable.getSelectedRow();
-        TableModel modle = this.DisplayTable.getModel();
+    public void DisplayTableClickedInTextField(JTextField E_ID, JTextField Date, JTextField Place, JTextField Description, JTextField Time, JTextField CategoryCode, JTextField TicketNumber,JTable DisplayTable){
+        int i = DisplayTable.getSelectedRow();
+        TableModel modle = DisplayTable.getModel();
         E_ID.setText(modle.getValueAt(i, 0).toString());
         Date.setText(modle.getValueAt(i, 1).toString());
         Place.setText(modle.getValueAt(i, 2).toString());
@@ -78,5 +84,6 @@ public class EventTable extends Tables{
         TicketNumber.setText(modle.getValueAt(i, 6).toString());
         
     }
-    
+
+
 }

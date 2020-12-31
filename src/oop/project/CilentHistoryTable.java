@@ -20,10 +20,15 @@ import javax.swing.table.TableModel;
  */
 public class CilentHistoryTable extends Tables{
 
+    public CilentHistoryTable(JTable jtable) {
+        super(jtable);
+    }
+
+
     public ArrayList<ClientHistory> getClientHistoryList(){
         
-        ArrayList<ClientHistory> clienthistoryList = new ArrayList<>();
-        String sql = "SELECT * FROM CLIENT";
+        ArrayList<ClientHistory> clienthistoryList = new ArrayList<ClientHistory>();
+        String sql = "SELECT * FROM CLIENT_HISTORY";
         try {
             St = conn.createStatement();
             Rs = St.executeQuery(sql);
@@ -41,7 +46,7 @@ public class CilentHistoryTable extends Tables{
     }
 
     @Override
-    public void DisplayDataInTable(JTable DisplayTable) {
+    public void DisplayDataInTable() {
        ArrayList<ClientHistory> list = getClientHistoryList();
         DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
         Object[] row = new Object[4];
@@ -63,8 +68,8 @@ public class CilentHistoryTable extends Tables{
     }
     
     public void DisplayTableClickedInTextField(JTextField ClientID, JTextField EventID, JTextField Date, JTextField TicketNumber){
-        int i = this.DisplayTable.getSelectedRow();
-        TableModel modle = this.DisplayTable.getModel();
+        int i = DisplayTable.getSelectedRow();
+        TableModel modle = DisplayTable.getModel();
         ClientID.setText(modle.getValueAt(i, 0).toString());
         EventID.setText(modle.getValueAt(i, 1).toString());
         Date.setText(modle.getValueAt(i, 2).toString());
