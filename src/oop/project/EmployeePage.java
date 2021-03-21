@@ -6,25 +6,12 @@
 package oop.project;
 
 import java.awt.Dimension;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
-import static oop.project.DatabaseConnection.conn;
 
 /**
  * This class represent the Employee interface

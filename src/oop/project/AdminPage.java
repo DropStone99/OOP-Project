@@ -7,25 +7,12 @@ package oop.project;
 
 import java.sql.*;
 import java.awt.Dimension;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
-import static oop.project.DatabaseConnection.conn;
+
 
 /**
  *
@@ -33,6 +20,7 @@ import static oop.project.DatabaseConnection.conn;
  */
 public class AdminPage extends javax.swing.JFrame {
     CategoryTable category;
+    Toolkit toolkit;
     EventTable event;
     Connection conn=DatabaseConnection.createConnection();
     Statement St;
@@ -46,7 +34,7 @@ public class AdminPage extends javax.swing.JFrame {
         event = new EventTable(jTable2);
         event.DisplayDataInTable();
         AdminName.setText("Welcome " + name);
-        Toolkit toolkit = getToolkit();
+        toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
     }
@@ -109,7 +97,6 @@ public class AdminPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(128, 128, 128));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1080, 920));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
