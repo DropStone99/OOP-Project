@@ -9,23 +9,30 @@ package oop.project;
  *
  * @author ibrahim
  */
-public class ClientHistory extends TableData{
+public class Seat extends TableData{
+    
+    protected int SeatID;
     protected int ClientID;
     protected int EventID;
     protected String Date;
-    protected int TicketNumber;
+    protected int Amounts;
 
-    public ClientHistory(int ID, int EventID, String Date, int TicketNumber) {
+    public Seat(int ID, int ClientID ,int EventID, String Date, int Amounts) {
         super(ID);
-        this.ClientID = ID;
+        this.SeatID = ID;
+        this.ClientID = ClientID;
         this.EventID = EventID;
         this.Date = Date;
-        this.TicketNumber = TicketNumber;
+        this.Amounts = Amounts;
     }
 
     @Override
     public int getID() {
-       return ClientID;
+        return SeatID;
+    }
+
+    public int getClientID() {
+        return ClientID;
     }
 
     public int getEventID() {
@@ -36,8 +43,8 @@ public class ClientHistory extends TableData{
         return Date;
     }
 
-    public int getTicketNumber() {
-        return TicketNumber;
+    public int getAmounts() {
+        return Amounts;
     }
     
 }

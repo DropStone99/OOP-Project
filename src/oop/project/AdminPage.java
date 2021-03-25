@@ -61,7 +61,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        ID1 = new javax.swing.JTextField();
+        E_Code = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -69,12 +69,12 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        ID2 = new javax.swing.JTextField();
-        ID3 = new javax.swing.JTextField();
-        ID4 = new javax.swing.JTextField();
-        ID5 = new javax.swing.JTextField();
-        ID6 = new javax.swing.JTextField();
-        ID7 = new javax.swing.JTextField();
+        TicketNo = new javax.swing.JTextField();
+        EventC_Code = new javax.swing.JTextField();
+        Time = new javax.swing.JTextField();
+        Description = new javax.swing.JTextField();
+        Place = new javax.swing.JTextField();
+        Date = new javax.swing.JTextField();
         jlabel10 = new javax.swing.JLabel();
         CategoryCode = new javax.swing.JTextField();
         Insert1 = new javax.swing.JButton();
@@ -84,10 +84,10 @@ public class AdminPage extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        ID8 = new javax.swing.JTextField();
-        ID9 = new javax.swing.JTextField();
+        C_Code = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
         jlabel11 = new javax.swing.JLabel();
-        CategoryCode1 = new javax.swing.JTextField();
+        EventCode = new javax.swing.JTextField();
         Insert2 = new javax.swing.JButton();
         Update2 = new javax.swing.JButton();
         Delete2 = new javax.swing.JButton();
@@ -113,9 +113,9 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable2);
 
-        ID1.addActionListener(new java.awt.event.ActionListener() {
+        E_Code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID1ActionPerformed(evt);
+                E_CodeActionPerformed(evt);
             }
         });
 
@@ -140,39 +140,39 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Ticket no :");
 
-        ID2.addActionListener(new java.awt.event.ActionListener() {
+        TicketNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID2ActionPerformed(evt);
+                TicketNoActionPerformed(evt);
             }
         });
 
-        ID3.addActionListener(new java.awt.event.ActionListener() {
+        EventC_Code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID3ActionPerformed(evt);
+                EventC_CodeActionPerformed(evt);
             }
         });
 
-        ID4.addActionListener(new java.awt.event.ActionListener() {
+        Time.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID4ActionPerformed(evt);
+                TimeActionPerformed(evt);
             }
         });
 
-        ID5.addActionListener(new java.awt.event.ActionListener() {
+        Description.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID5ActionPerformed(evt);
+                DescriptionActionPerformed(evt);
             }
         });
 
-        ID6.addActionListener(new java.awt.event.ActionListener() {
+        Place.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID6ActionPerformed(evt);
+                PlaceActionPerformed(evt);
             }
         });
 
-        ID7.addActionListener(new java.awt.event.ActionListener() {
+        Date.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID7ActionPerformed(evt);
+                DateActionPerformed(evt);
             }
         });
 
@@ -238,29 +238,29 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("Name :");
 
-        ID8.addActionListener(new java.awt.event.ActionListener() {
+        C_Code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID8ActionPerformed(evt);
+                C_CodeActionPerformed(evt);
             }
         });
 
-        ID9.addActionListener(new java.awt.event.ActionListener() {
+        Name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ID9ActionPerformed(evt);
+                NameActionPerformed(evt);
             }
         });
 
         jlabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jlabel11.setText("SearchBy Category code :");
 
-        CategoryCode1.addActionListener(new java.awt.event.ActionListener() {
+        EventCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CategoryCode1ActionPerformed(evt);
+                EventCodeActionPerformed(evt);
             }
         });
-        CategoryCode1.addKeyListener(new java.awt.event.KeyAdapter() {
+        EventCode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                CategoryCode1KeyReleased(evt);
+                EventCodeKeyReleased(evt);
             }
         });
 
@@ -319,13 +319,13 @@ public class AdminPage extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ID3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID5, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(EventC_Code, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Time, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Description, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Place, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(E_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,7 +333,7 @@ public class AdminPage extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CategoryCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(EventCode, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Update2)
                             .addComponent(Insert2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -342,11 +342,11 @@ public class AdminPage extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ID9, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ID8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(C_Code, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -391,11 +391,11 @@ public class AdminPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(C_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(Insert2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -407,35 +407,35 @@ public class AdminPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CategoryCode1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(EventCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(E_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Place, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Description, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ID4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ID3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EventC_Code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TicketNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -448,33 +448,33 @@ public class AdminPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID1ActionPerformed
+    private void E_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E_CodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID1ActionPerformed
+    }//GEN-LAST:event_E_CodeActionPerformed
 
-    private void ID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID2ActionPerformed
+    private void TicketNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TicketNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID2ActionPerformed
+    }//GEN-LAST:event_TicketNoActionPerformed
 
-    private void ID3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID3ActionPerformed
+    private void EventC_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EventC_CodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID3ActionPerformed
+    }//GEN-LAST:event_EventC_CodeActionPerformed
 
-    private void ID4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID4ActionPerformed
+    private void TimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID4ActionPerformed
+    }//GEN-LAST:event_TimeActionPerformed
 
-    private void ID5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID5ActionPerformed
+    private void DescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescriptionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID5ActionPerformed
+    }//GEN-LAST:event_DescriptionActionPerformed
 
-    private void ID6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID6ActionPerformed
+    private void PlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID6ActionPerformed
+    }//GEN-LAST:event_PlaceActionPerformed
 
-    private void ID7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID7ActionPerformed
+    private void DateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID7ActionPerformed
+    }//GEN-LAST:event_DateActionPerformed
 
     private void CategoryCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryCodeActionPerformed
         // TODO add your handling code here:
@@ -489,9 +489,9 @@ public class AdminPage extends javax.swing.JFrame {
             Rs=pst.executeQuery();
             if(Rs.next()){
                 String add1=Rs.getString("Code");
-                ID8.setText(add1);
+                C_Code.setText(add1);
                 String add2=Rs.getString("Name");
-                ID9.setText(add2);
+                Name.setText(add2);
 
             }
 
@@ -505,52 +505,52 @@ public class AdminPage extends javax.swing.JFrame {
     private void Insert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insert1ActionPerformed
         event.ExecuteQuery("INSERT INTO `event`" +
             "(`E-code`,`date`,`place`,`Description`,`Time`,`Category Code`,`Ticket_Number`)" +
-            "VALUES (" + ID1.getText() + ",'" + ID7.getText() + "','" + ID6.getText() + "','" + ID5.getText() + "',' " + ID4.getText() + "'," + ID3.getText() + "," + ID2.getText() +");","Inserted");
+            "VALUES (" + E_Code.getText() + ",'" + Date.getText() + "','" + Place.getText() + "','" + Description.getText() + "',' " + Time.getText() + "'," + EventC_Code.getText() + "," + TicketNo.getText() +");","Inserted");
 
     }//GEN-LAST:event_Insert1ActionPerformed
 
     private void Update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update1ActionPerformed
-        event.ExecuteQuery("UPDATE event SET `E-code`=" + ID1.getText() + "`date`='" + ID7.getText() +"', `place`='" + ID6.getText() + "', `Description`='" + ID5.getText() + "', `Time`='" + ID4.getText() + "', `Category Code`=" + ID3.getText() + ", `Ticket_Number`=" + ID2.getText() + "WHERE `E-code`="+ ID1.getText()+";", "Updated");
+        event.ExecuteQuery("UPDATE event SET `E-code`=" + E_Code.getText() + "`date`='" + Date.getText() +"', `place`='" + Place.getText() + "', `Description`='" + Description.getText() + "', `Time`='" + Time.getText() + "', `Category Code`=" + EventC_Code.getText() + ", `Ticket_Number`=" + TicketNo.getText() + "WHERE `E-code`="+ E_Code.getText()+";", "Updated");
     }//GEN-LAST:event_Update1ActionPerformed
 
     private void Delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete1ActionPerformed
-        event.ExecuteQuery("DELETE FROM `event` WHERE `E-code`=" +ID1.getText(), "Deleted");
+        event.ExecuteQuery("DELETE FROM `event` WHERE `E-code`=" +E_Code.getText(), "Deleted");
     }//GEN-LAST:event_Delete1ActionPerformed
 
-    private void ID8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID8ActionPerformed
+    private void C_CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C_CodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID8ActionPerformed
+    }//GEN-LAST:event_C_CodeActionPerformed
 
-    private void ID9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ID9ActionPerformed
+    private void NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ID9ActionPerformed
+    }//GEN-LAST:event_NameActionPerformed
 
-    private void CategoryCode1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryCode1ActionPerformed
+    private void EventCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EventCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CategoryCode1ActionPerformed
+    }//GEN-LAST:event_EventCodeActionPerformed
 
-    private void CategoryCode1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CategoryCode1KeyReleased
+    private void EventCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EventCodeKeyReleased
         try{
             String sql="select * from event where `E-code` =?";
             
             pst=conn.prepareStatement(sql);
-            pst.setString(1, CategoryCode1.getText());
+            pst.setString(1, EventCode.getText());
             Rs=pst.executeQuery();
             if(Rs.next()){
                 String add1=Rs.getString("E-code");
-                ID1.setText(add1);
+                E_Code.setText(add1);
                  String add2=Rs.getString("date");
-                ID7.setText(add2);
+                Date.setText(add2);
                  String add3=Rs.getString("place");
-                ID6.setText(add3);
+                Place.setText(add3);
                  String add4=Rs.getString("Description");
-                ID5.setText(add4);
+                Description.setText(add4);
                  String add5=Rs.getString("Time");
-                ID4.setText(add5);
+                Time.setText(add5);
                 String add6=Rs.getString("Category code");
-                ID3.setText(add6);
+                EventC_Code.setText(add6);
                 String add7=Rs.getString("Ticket_Number");
-                ID2.setText(add7);
+                TicketNo.setText(add7);
                 
                 
             }
@@ -560,20 +560,20 @@ public class AdminPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         
         }
-    }//GEN-LAST:event_CategoryCode1KeyReleased
+    }//GEN-LAST:event_EventCodeKeyReleased
 
     private void Insert2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Insert2ActionPerformed
         category.ExecuteQuery("INSERT INTO `category`" +
             "(`Code`,`Name`)" +
-            "VALUES ('"+ ID8.getText() +"','" + ID9.getText() + "');", "Inserted");
+            "VALUES ('"+ C_Code.getText() +"','" + Name.getText() + "');", "Inserted");
     }//GEN-LAST:event_Insert2ActionPerformed
 
     private void Update2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update2ActionPerformed
-         category.ExecuteQuery("UPDATE `category` SET `Code`=" + ID8.getText() + ", `Name` = '" + ID9.getText() + "'  WHERE `Code`=" + ID8.getText() , "Updated");
+         category.ExecuteQuery("UPDATE `category` SET `Code`=" + C_Code.getText() + ", `Name` = '" + Name.getText() + "'  WHERE `Code`=" + C_Code.getText() , "Updated");
     }//GEN-LAST:event_Update2ActionPerformed
 
     private void Delete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete2ActionPerformed
-         category.ExecuteQuery("DELETE FROM `category` WHERE `Code` =" + ID8.getText(), "Deleted");
+         category.ExecuteQuery("DELETE FROM `category` WHERE `Code` =" + C_Code.getText(), "Deleted");
     }//GEN-LAST:event_Delete2ActionPerformed
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
@@ -583,11 +583,11 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_SignInActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        category.DisplayTableClickedInTextField(ID8, ID9);
+        category.DisplayTableClickedInTextField(C_Code, Name);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        event.DisplayTableClickedInTextField(ID1, ID7, ID6, ID5, ID4, ID3, ID2);
+        event.DisplayTableClickedInTextField(E_Code, Date, Place, Description, Time, EventC_Code, TicketNo);
     }//GEN-LAST:event_jTable2MouseClicked
 
     /**
@@ -627,22 +627,22 @@ public class AdminPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AdminName;
+    private javax.swing.JTextField C_Code;
     private javax.swing.JTextField CategoryCode;
-    private javax.swing.JTextField CategoryCode1;
+    private javax.swing.JTextField Date;
     private javax.swing.JButton Delete1;
     private javax.swing.JButton Delete2;
-    private javax.swing.JTextField ID1;
-    private javax.swing.JTextField ID2;
-    private javax.swing.JTextField ID3;
-    private javax.swing.JTextField ID4;
-    private javax.swing.JTextField ID5;
-    private javax.swing.JTextField ID6;
-    private javax.swing.JTextField ID7;
-    private javax.swing.JTextField ID8;
-    private javax.swing.JTextField ID9;
+    private javax.swing.JTextField Description;
+    private javax.swing.JTextField E_Code;
+    private javax.swing.JTextField EventC_Code;
+    private javax.swing.JTextField EventCode;
     private javax.swing.JButton Insert1;
     private javax.swing.JButton Insert2;
+    private javax.swing.JTextField Name;
+    private javax.swing.JTextField Place;
     private javax.swing.JButton SignIn;
+    private javax.swing.JTextField TicketNo;
+    private javax.swing.JTextField Time;
     private javax.swing.JButton Update1;
     private javax.swing.JButton Update2;
     private javax.swing.JLabel jLabel1;

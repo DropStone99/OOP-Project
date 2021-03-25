@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  * @author ibrahim
  */
 public class LoginGUI extends javax.swing.JFrame {
+    
 
     Connection conn;
     PreparedStatement pst;

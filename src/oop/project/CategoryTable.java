@@ -75,6 +75,7 @@ public class CategoryTable extends Tables{
                 JOptionPane.showMessageDialog(null ,"Data Not "+message);
             }
         } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
     

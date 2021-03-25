@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import static oop.project.Tables.Rs;
 import static oop.project.Tables.St;
 import static oop.project.Tables.conn;
 
@@ -22,51 +23,66 @@ import static oop.project.Tables.conn;
  *
  * @author ibrahim
  */
-public class ClientTable extends Tables{
+public class SeatTable extends Tables {
 
-    public ClientTable(JTable jtable) {
-        super(jtable);
+    public SeatTable(JTable DisplayTable) {
+        super(DisplayTable);
     }
-
-
     
-    
-    public ArrayList<Client> getClientList(){
+    public ArrayList<Seat> getSeatList(){
         
-        ArrayList<Client> clientList = new ArrayList<>();
-        String sql = "SELECT * FROM CLIENT";
+        ArrayList<Seat> SeatList = new ArrayList<Seat>();
+        String sql = "SELECT * FROM Seat";
         try {
             St = conn.createStatement();
             Rs = St.executeQuery(sql);
-            Client client;
+            Seat seat;
             while(Rs.next()){
-                client = new Client(Rs.getInt("C_ID"),Rs.getString("Name"),Rs.getString("E-mail"),Rs.getString("password"),Rs.getInt("phone"));
-                clientList.add(client);
+                seat = new Seat(Rs.getInt("seat_id"),Rs.getInt("Client id"),Rs.getInt("event id"),Rs.getString("date"),Rs.getInt("Amounts"));
+                SeatList.add(seat);
             }
         } catch (SQLException ex) {
             Logger.getLogger(EmployeePage.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return clientList;
+        return SeatList;
+        
+    }
+    public ArrayList<Seat> getSeatList(String sql){
+        
+        ArrayList<Seat> SeatList = new ArrayList<Seat>();
+        try {
+            St = conn.createStatement();
+            Rs = St.executeQuery(sql);
+            Seat seat;
+            while(Rs.next()){
+                seat = new Seat(Rs.getInt("seat_id"),Rs.getInt("Client id"),Rs.getInt("event id"),Rs.getString("date"),Rs.getInt("Amounts"));
+                SeatList.add(seat);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return SeatList;
         
     }
 
     @Override
     public void DisplayDataInTable() {
-        ArrayList<Client> list = getClientList();
+        ArrayList<Seat> list = getSeatList();
         DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
         Object[] row = new Object[5];
         for(int i = 0 ; i < list.size(); i++){
             
             row[0] = list.get(i).getID();
-            row[1] = list.get(i).getUserName();
-            row[2] = list.get(i).getE_mail();
-            row[3] = list.get(i).getPassword();
-            row[4] = list.get(i).getPhone();
+            row[1] = list.get(i).getClientID();
+            row[2] = list.get(i).getEventID();
+            row[3] = list.get(i).getDate();
+            row[4] = list.get(i).getAmounts();
             
             model.addRow(row);
             
-        }
+        } //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -84,16 +100,18 @@ public class ClientTable extends Tables{
                 JOptionPane.showMessageDialog(null ,"Data Not "+message);
             }
         } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
     
-    public void DisplayTableClickedInTextField(JTextField ID, JTextField ClientName, JTextField Email, JTextField Password, JTextField Phone){
+    public void DisplayTableClickedInTextField(JTextField SeatID,JTextField ClientID, JTextField EventID, JTextField Date, JTextField TicketNumber){
         int i = DisplayTable.getSelectedRow();
         TableModel modle = DisplayTable.getModel();
-        ID.setText(modle.getValueAt(i, 0).toString());
-        ClientName.setText(modle.getValueAt(i, 1).toString());
-        Email.setText(modle.getValueAt(i, 2).toString());
-        Password.setText(modle.getValueAt(i, 3).toString());
-        Phone.setText(modle.getValueAt(i, 4).toString());
+        SeatID.setText(modle.getValueAt(i, 0).toString());
+        ClientID.setText(modle.getValueAt(i, 1).toString());
+        EventID.setText(modle.getValueAt(i, 2).toString());
+        Date.setText(modle.getValueAt(i, 3).toString());
+        TicketNumber.setText(modle.getValueAt(i, 4).toString());
     }
+    
 }
