@@ -27,7 +27,7 @@ public class EmployeePage extends javax.swing.JFrame {
         client = new ClientTable(Client_Table);
         client.DisplayDataInTable();
         seat = new SeatTable(Seat_Table);
-        seat.DisplayDataInTable();
+        seat.DisplayDataInTableSearch(ClientEventId.getText());
         NameEmployee.setText("Welcome " + name);
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
@@ -40,7 +40,7 @@ public class EmployeePage extends javax.swing.JFrame {
         client = new ClientTable(Client_Table);
         client.DisplayDataInTable();
         seat = new SeatTable(Seat_Table);
-        seat.DisplayDataInTable();
+        seat.DisplayDataInTableSearch(ClientEventId.getText());
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, size.height/2 - getHeight()/2);
@@ -640,7 +640,8 @@ public class EmployeePage extends javax.swing.JFrame {
     }//GEN-LAST:event_BookActionPerformed
 
     private void HistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoryActionPerformed
-        
+        seat.EmptyDataInTable();
+        seat.DisplayDataInTableSearch(ClientEventId.getText());
     }//GEN-LAST:event_HistoryActionPerformed
 
     private void UnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnBookActionPerformed

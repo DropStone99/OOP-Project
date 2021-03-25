@@ -32,7 +32,7 @@ public class SeatTable extends Tables {
     public ArrayList<Seat> getSeatList(){
         
         ArrayList<Seat> SeatList = new ArrayList<Seat>();
-        String sql = "SELECT * FROM Seat";
+        String sql = "SELECT * FROM Seat WHERE CONCAT(`Client id`) Like '%%'";
         try {
             St = conn.createStatement();
             Rs = St.executeQuery(sql);
@@ -48,9 +48,10 @@ public class SeatTable extends Tables {
         return SeatList;
         
     }
-    public ArrayList<Seat> getSeatList(String sql){
+    public ArrayList<Seat> getSeatList(String ClientEventId){
         
         ArrayList<Seat> SeatList = new ArrayList<Seat>();
+        String sql = "SELECT * FROM Seat WHERE CONCAT(`Client id`) Like '%"+ClientEventId+"%'";
         try {
             St = conn.createStatement();
             Rs = St.executeQuery(sql);
@@ -82,7 +83,35 @@ public class SeatTable extends Tables {
             
             model.addRow(row);
             
-        } //To change body of generated methods, choose Tools | Templates.
+        }
+        DisplayTable.setModel(model);
+    }
+    
+    public void DisplayDataInTableSearch(String Client) {
+        ArrayList<Seat> list = getSeatList(Client);
+        DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
+        Object[] row = new Object[5];
+        DisplayTable.setModel(new DefaultTableModel(null,row));
+        for(int i = 0 ; i < list.size(); i++){
+            
+            row[0] = list.get(i).getID();
+            row[1] = list.get(i).getClientID();
+            row[2] = list.get(i).getEventID();
+            row[3] = list.get(i).getDate();
+            row[4] = list.get(i).getAmounts();
+            
+            model.addRow(row);
+            
+        } 
+        DisplayTable.setModel(model);
+    }
+    
+    public void EmptyDataInTable() {
+        int rows = DisplayTable.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)DisplayTable.getModel();
+        for(int i = rows-1; i >=0; i--){
+            model.removeRow(i);
+        }
     }
 
     @Override

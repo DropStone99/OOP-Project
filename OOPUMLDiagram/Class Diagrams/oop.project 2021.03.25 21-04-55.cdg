@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="oop.project">
+  <ClassDiagramComponents>
+    <Class name="AdminPage" package="oop.project" visibility="public" xPosition="12.0" yPosition="1895.0">
+      <Fields>
+        <Field name="category" type="CategoryTable" visibility="package"/>
+        <Field name="toolkit" type="Toolkit" visibility="package"/>
+        <Field name="event" type="EventTable" visibility="package"/>
+        <Field name="conn" type="Connection" visibility="package"/>
+        <Field name="St" type="Statement" visibility="package"/>
+        <Field name="Rs" type="ResultSet" visibility="package"/>
+        <Field name="pst" type="PreparedStatement" visibility="package"/>
+        <Field name="AdminName" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="C_Code" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="CategoryCode" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Date" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Delete1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Delete2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Description" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="E_Code" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="EventC_Code" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="EventCode" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Insert1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Insert2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Name" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Place" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="SignIn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="TicketNo" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Time" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Update1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Update2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jTable1" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTable2" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jlabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jlabel11" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="E_CodeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="TicketNoActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="EventC_CodeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="TimeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="DescriptionActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="PlaceActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="DateActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="CategoryCodeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="CategoryCodeKeyReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="Insert1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Update1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Delete1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="C_CodeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="NameActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="EventCodeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="EventCodeKeyReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="Insert2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Update2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Delete2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="SignInActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jTable1MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jTable2MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Category" package="oop.project" visibility="public" xPosition="694.0" yPosition="1236.0">
+      <Fields>
+        <Field name="ID" type="int" visibility="protected"/>
+        <Field name="Name" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ID"/>
+          <Argument type="String" name="Name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getID" returnType="int" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CategoryTable" package="oop.project" visibility="public" xPosition="12.0" yPosition="1236.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JTable" name="DisplayTable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCategoryList" returnType="ArrayList&lt;Category&gt;" visibility="public"/>
+        <Method name="DisplayDataInTable" returnType="void" visibility="public"/>
+        <Method name="ExecuteQuery" returnType="void" visibility="public">
+          <Argument type="String" name="sql"/>
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="DisplayTableClickedInTextField" returnType="void" visibility="public">
+          <Argument type="JTextField" name="Category_ID"/>
+          <Argument type="JTextField" name="Name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Client" package="oop.project" visibility="public" xPosition="2198.0" yPosition="883.0">
+      <Fields>
+        <Field name="ID" type="int" visibility="protected"/>
+        <Field name="UserName" type="String" visibility="protected"/>
+        <Field name="Password" type="String" visibility="protected"/>
+        <Field name="E_mail" type="String" visibility="protected"/>
+        <Field name="Phone" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ID"/>
+          <Argument type="String" name="UserName"/>
+          <Argument type="String" name="Password"/>
+          <Argument type="String" name="E_mail"/>
+          <Argument type="int" name="Phone"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getID" returnType="int" visibility="public"/>
+        <Method name="getUserName" returnType="String" visibility="public"/>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="getE_mail" returnType="String" visibility="public"/>
+        <Method name="getPhone" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ClientTable" package="oop.project" visibility="public" xPosition="1249.0" yPosition="763.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JTable" name="jtable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getClientList" returnType="ArrayList&lt;Client&gt;" visibility="public"/>
+        <Method name="DisplayDataInTable" returnType="void" visibility="public"/>
+        <Method name="ExecuteQuery" returnType="void" visibility="public">
+          <Argument type="String" name="sql"/>
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="DisplayTableClickedInTextField" returnType="void" visibility="public">
+          <Argument type="JTextField" name="ID"/>
+          <Argument type="JTextField" name="ClientName"/>
+          <Argument type="JTextField" name="Email"/>
+          <Argument type="JTextField" name="Password"/>
+          <Argument type="JTextField" name="Phone"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DatabaseConnection" package="oop.project" visibility="public" xPosition="844.0" yPosition="3044.0">
+      <Fields>
+        <Field name="conn" type="Connection" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createConnection" returnType="Connection" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="EmployeePage" package="oop.project" visibility="public" xPosition="1599.0" yPosition="1993.0">
+      <Fields>
+        <Field name="client" type="ClientTable" visibility="package"/>
+        <Field name="seat" type="SeatTable" visibility="package"/>
+        <Field name="conn" type="Connection" visibility="package"/>
+        <Field name="St" type="Statement" visibility="package"/>
+        <Field name="Rs" type="ResultSet" visibility="package"/>
+        <Field name="pst" type="PreparedStatement" visibility="package"/>
+        <Field name="Amount" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Book" type="javax.swing.JButton" visibility="private"/>
+        <Field name="ByID" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ByName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="CategoryCode" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ClientEventId" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ClientName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Client_Table" type="javax.swing.JTable" visibility="private"/>
+        <Field name="Date" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Delete" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Email" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="EventId" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="History" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Id" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Insert" type="javax.swing.JButton" visibility="private"/>
+        <Field name="NameEmployee" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="Password" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="Phone" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="SeatId" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="Seat_Table" type="javax.swing.JTable" visibility="private"/>
+        <Field name="SignIn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="UnBook" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Update" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jTable1" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jlabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jtext10" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="IdActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="ClientNameActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="PasswordActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="InsertActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="UpdateActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="DeleteActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Client_TableMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="CategoryCodeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="ByIDKeyReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="ByNameKeyReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="ByIDActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="CategoryCodeKeyReleased" returnType="void" visibility="private">
+          <Argument type="java.awt.event.KeyEvent" name="evt"/>
+        </Method>
+        <Method name="SignInActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="BookActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="HistoryActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="UnBookActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="SeatIdActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="EmailActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="ClientEventIdActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Seat_TableMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Event" package="oop.project" visibility="public" xPosition="968.0" yPosition="1509.0">
+      <Fields>
+        <Field name="ID" type="int" visibility="protected"/>
+        <Field name="Date" type="String" visibility="protected"/>
+        <Field name="Place" type="String" visibility="protected"/>
+        <Field name="Description" type="String" visibility="protected"/>
+        <Field name="Time" type="String" visibility="protected"/>
+        <Field name="CategoryCode" type="int" visibility="protected"/>
+        <Field name="TicketNumber" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ID"/>
+          <Argument type="String" name="Date"/>
+          <Argument type="String" name="Place"/>
+          <Argument type="String" name="Description"/>
+          <Argument type="String" name="Time"/>
+          <Argument type="int" name="CategoryCode"/>
+          <Argument type="int" name="TicketNumber"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getID" returnType="int" visibility="public"/>
+        <Method name="getDate" returnType="String" visibility="public"/>
+        <Method name="getPlace" returnType="String" visibility="public"/>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="getTime" returnType="String" visibility="public"/>
+        <Method name="getCategoryCode" returnType="int" visibility="public"/>
+        <Method name="getTicketNumber" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EventTable" package="oop.project" visibility="public" xPosition="280.0" yPosition="1604.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JTable" name="jtable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEventList" returnType="ArrayList&lt;Event&gt;" visibility="public"/>
+        <Method name="DisplayDataInTable" returnType="void" visibility="public"/>
+        <Method name="ExecuteQuery" returnType="void" visibility="public">
+          <Argument type="String" name="sql"/>
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="DisplayTableClickedInTextField" returnType="void" visibility="public">
+          <Argument type="JTextField" name="E_ID"/>
+          <Argument type="JTextField" name="Date"/>
+          <Argument type="JTextField" name="Place"/>
+          <Argument type="JTextField" name="Description"/>
+          <Argument type="JTextField" name="Time"/>
+          <Argument type="JTextField" name="CategoryCode"/>
+          <Argument type="JTextField" name="TicketNumber"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LoginGUI" package="oop.project" visibility="public" xPosition="831.0" yPosition="2413.0">
+      <Fields>
+        <Field name="conn" type="Connection" visibility="package"/>
+        <Field name="pst" type="PreparedStatement" visibility="package"/>
+        <Field name="Rs" type="ResultSet" visibility="package"/>
+        <Field name="Close" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Password" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="SignIn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Username" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="user" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="UsernameActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="SignInActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="userActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="CloseActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="OOPProject" package="oop.project" visibility="public" xPosition="1249.0" yPosition="3044.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Seat" package="oop.project" visibility="public" xPosition="2198.0" yPosition="1236.0">
+      <Fields>
+        <Field name="SeatID" type="int" visibility="protected"/>
+        <Field name="ClientID" type="int" visibility="protected"/>
+        <Field name="EventID" type="int" visibility="protected"/>
+        <Field name="Date" type="String" visibility="protected"/>
+        <Field name="Amounts" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ID"/>
+          <Argument type="int" name="ClientID"/>
+          <Argument type="int" name="EventID"/>
+          <Argument type="String" name="Date"/>
+          <Argument type="int" name="Amounts"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getID" returnType="int" visibility="public"/>
+        <Method name="getClientID" returnType="int" visibility="public"/>
+        <Method name="getEventID" returnType="int" visibility="public"/>
+        <Method name="getDate" returnType="String" visibility="public"/>
+        <Method name="getAmounts" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SeatTable" package="oop.project" visibility="public" xPosition="1858.0" yPosition="1604.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JTable" name="DisplayTable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSeatList" returnType="ArrayList&lt;Seat&gt;" visibility="public"/>
+        <Method name="getSeatList" returnType="ArrayList&lt;Seat&gt;" visibility="public">
+          <Argument type="String" name="ClientEventId"/>
+        </Method>
+        <Method name="DisplayDataInTable" returnType="void" visibility="public"/>
+        <Method name="DisplayDataInTableSearch" returnType="void" visibility="public">
+          <Argument type="String" name="Client"/>
+        </Method>
+        <Method name="EmptyDataInTable" returnType="void" visibility="public"/>
+        <Method name="ExecuteQuery" returnType="void" visibility="public">
+          <Argument type="String" name="sql"/>
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="DisplayTableClickedInTextField" returnType="void" visibility="public">
+          <Argument type="JTextField" name="SeatID"/>
+          <Argument type="JTextField" name="ClientID"/>
+          <Argument type="JTextField" name="EventID"/>
+          <Argument type="JTextField" name="Date"/>
+          <Argument type="JTextField" name="TicketNumber"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TableData" package="oop.project" visibility="public" isAbstract="true" xPosition="1205.0" yPosition="1079.0">
+      <Fields>
+        <Field name="ID" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ID"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getID" returnType="int" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Tables" package="oop.project" visibility="public" isAbstract="true" xPosition="334.0" yPosition="883.0">
+      <Fields>
+        <Field name="conn" type="Connection" visibility="package" isStatic="true"/>
+        <Field name="St" type="Statement" visibility="package" isStatic="true"/>
+        <Field name="Rs" type="ResultSet" visibility="package" isStatic="true"/>
+        <Field name="DisplayTable" type="JTable" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JTable" name="DisplayTable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="DisplayDataInTable" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="ExecuteQuery" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="sql"/>
+          <Argument type="String" name="message"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="oop.project.Event" target="oop.project.TableData"/>
+    <UseRelation source="oop.project.SeatTable" target="oop.project.Seat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="oop.project.EventTable" target="oop.project.Tables"/>
+    <HasRelation name="event" source="oop.project.AdminPage" target="oop.project.EventTable" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="oop.project.SeatTable" target="oop.project.Tables"/>
+    <UseRelation source="oop.project.CategoryTable" target="oop.project.Category" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="oop.project.Seat" target="oop.project.TableData"/>
+    <UseRelation source="oop.project.EventTable" target="oop.project.Event" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="oop.project.Category" target="oop.project.TableData"/>
+    <UseRelation source="oop.project.AdminPage" target="oop.project.Event" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="oop.project.LoginGUI" target="oop.project.Event" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="category" source="oop.project.AdminPage" target="oop.project.CategoryTable" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="seat" source="oop.project.EmployeePage" target="oop.project.SeatTable" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="oop.project.Client" target="oop.project.TableData"/>
+    <UseRelation source="oop.project.ClientTable" target="oop.project.Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="oop.project.EmployeePage" target="oop.project.Event" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="oop.project.CategoryTable" target="oop.project.Tables"/>
+    <IsRelation name="is" source="oop.project.ClientTable" target="oop.project.Tables"/>
+    <HasRelation name="client" source="oop.project.EmployeePage" target="oop.project.ClientTable" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
